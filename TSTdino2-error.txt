@@ -1,0 +1,40 @@
+glcc -o TSTdino2.gt1 TSTdino2.c -DMEM32=0 -map=32k,./TSTdino2.ovl -rom=v5a --frags
+
+Fragment map
+        0200-022c (45 bytes)     CODE  _gt1exec                     _gt1exec.s
+        022d-0299 (109 bytes)    DATA  clear1a                      TSTdino2.c
+        0300-036c (109 bytes)    DATA  dinoa1a                      TSTdino2.c
+        036d-03d9 (109 bytes)    DATA  dinoa2a                      TSTdino2.c
+        0400-046c (109 bytes)    DATA  dinoa3a                      TSTdino2.c
+        046d-04d9 (109 bytes)    DATA  dinob1a                      TSTdino2.c
+        0500-056c (109 bytes)    DATA  dinob2a                      TSTdino2.c
+        056d-05d9 (109 bytes)    DATA  dinob3a                      TSTdino2.c
+        05fa-0666 (109 bytes)    DATA  dinoc1a                      TSTdino2.c
+        0667-06d3 (109 bytes)    DATA  dinoc2a                      TSTdino2.c
+        0800-086c (109 bytes)    DATA  dinoc3a                      TSTdino2.c
+        10a0-10f9 (90 bytes)     CODE  printSprite18                TSTdino2.c
+        10fa-10fb (2 bytes)      DATA  __glink_magic_init           libc.a(_start.s)
+        10fc-10fd (2 bytes)      DATA  __glink_magic_fini           libc.a(_start.s)
+        10fe-10ff (2 bytes)      DATA  __glink_magic_bss            libc.a(_init1.c)
+        11a0-11cd (46 bytes)     CODE  wait                         TSTdino2.c
+        11ce-11f8 (43 bytes)     CODE  main (1/4)                   TSTdino2.c
+        11fa-11fb (2 bytes)      BSS   i                            TSTdino2.c
+        11fc-11fd (2 bytes)      BSS   y                            TSTdino2.c
+        11fe-11ff (2 bytes)      BSS   x                            TSTdino2.c
+        12a0-12ff (96 bytes)     CODE  main (2/4)                   TSTdino2.c
+        13a0-13fb (92 bytes)     CODE  main (3/4)                   TSTdino2.c
+        14a0-14ac (13 bytes)     CODE  main (4/4)                   TSTdino2.c
+        14ad-14d5 (41 bytes)     CODE  _console_clear               libc.a(cons_clear.s)
+        14d6-14e3 (14 bytes)     CODE  SYS_Sprite6                  libc.a(sys_sprite6.s)
+        14e4-14fb (24 bytes)     DATA  dino                         TSTdino2.c
+        15a0-15e6 (71 bytes)     CODE  memset                       libc.a(memset.s)
+        15e8-15fb (20 bytes)     DATA  console_info                 libc.a(cons_geom.c)
+        16a0-16ee (79 bytes)     CODE  _start                       libc.a(_start.s)
+        17a0-17c4 (37 bytes)     CODE  .callchain                   libc.a(_start.s)
+        18a0-18f2 (83 bytes)     CODE  _console_reset               libc.a(cons_geom.c)
+        19a0-19f4 (85 bytes)     CODE  _init_bss                    libc.a(_init1.c)
+        1aa0-1af6 (87 bytes)     CODE  _@_save_ff                   libc.a(rt_save.s)
+        1ba0-1bef (80 bytes)     CODE  _@_rtrn_ff                   libc.a(rt_save.s)
+
+
+this part of the sprite is created over the side boundary? -> 05fa-0666 (109 bytes)    DATA  dinoc1a
