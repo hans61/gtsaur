@@ -17,7 +17,9 @@ void printSprite18(const char** ptrChar, int x, int y)
 	int i;
 	int y1 = y;
 	for(i=0; i<3; i++){
-		SYS_Sprite6((char*)ptrChar[i], (char*)(y1<<8)+x+6*i);
+		SYS_Sprite6((char*)ptrChar[i], (char*)(y<<8)+x+6*i);
+	//while(serialRaw == 0xff) {}
+	//while(serialRaw != 0xff) {}
 	}
 }
 
@@ -31,12 +33,16 @@ void wait(char value)
 	int t,w;
 	w = value * 100;
 	for(t=0; t<w; t++) t++;
+	
+	//while(serialRaw == 0xff) {}
+	//while(serialRaw != 0xff) {}
 }
 
 int main()
 {
-	_console_reset(0x003F);
 	videoTop_v5 = 40;
+	// _console_reset(0x003F);
+	_console_clear((char*)0x1c00, 0x003F, 100);
 	y = 60;
 	for(;;){
 		for(x=0; x<140; x+=3){
