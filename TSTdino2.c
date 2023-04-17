@@ -8,7 +8,7 @@
 // definition of sprites outsource, clearer
 #include "sprites2.h"
 
-#define WAIT 30
+#define WAIT 10
 
 int x,y,i;
 
@@ -18,8 +18,8 @@ void printSprite18(const char** ptrChar, int x, int y)
 	int y1 = y;
 	for(i=0; i<3; i++){
 		SYS_Sprite6((char*)ptrChar[i], (char*)(y<<8)+x+6*i);
-	//while(serialRaw == 0xff) {}
-	//while(serialRaw != 0xff) {}
+		//while(serialRaw == 0xff) {}
+		//while(serialRaw != 0xff) {}
 	}
 }
 
@@ -40,8 +40,13 @@ void wait(char value)
 
 int main()
 {
-	videoTop_v5 = 40;
+	char* p1 = (char*)0x0100;
+	char l;
+	//videoTop_v5 = 20;
 	// _console_reset(0x003F);
+		
+	for(l=0; i<40; i+=2) p1[i] = p1[40];
+	
 	_console_clear((char*)0x1c00, 0x003F, 100);
 	y = 60;
 	for(;;){
